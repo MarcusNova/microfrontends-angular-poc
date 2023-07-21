@@ -1,0 +1,22 @@
+<section class="register-container">
+    <form class="register-container__form" [formGroup]="registerForm" (ngSubmit)="onSubmitHandler()">
+        <div>
+            <label for="name">Ingrese su nombre</label>
+            <input type="text" placeholder="Juan" formControlName="name">
+        </div>
+        <div>
+            <label for="email">Ingrese su email</label>
+            <input type="email" placeholder="Juan@test.com" formControlName="email">
+        </div>
+        <div>
+            <label for="name">Ingrese su edad</label>
+            <input type="number" formControlName="age">
+        </div>
+        <button type="submit">Registrarse</button>
+        <button [routerLink]="['/perfil']">Ir a perfil</button>
+    </form> 
+    <picture class="register-container__landscape">
+    <img src="assets/gifs/landscape.gif" alt="developer-gif">
+    </picture>
+
+</section>

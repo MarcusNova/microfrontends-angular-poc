@@ -1,0 +1,83 @@
+.profile-container {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    padding-left: 40px;
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .profile-card {
+        width: 400px;
+        height: 450px;
+        &__header {
+            height: 30%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            background-color: #EE5351;
+            picture {    
+                width: 100px;
+                background-color: white;
+                height: 100px;
+                position: absolute;
+                border-radius: 50%;
+                bottom: -35px;
+                outline: 3px solid white;
+                outline-offset: 5px;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        &__body {
+            height: 70%;
+            width: 100%;
+            padding-top: 20%;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background-color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .name {
+                margin-bottom: 20px;
+                font-size: 30px;
+                color: #EE5351;;
+            }
+            h2 {
+                margin-bottom: 10px;
+                font-size: 22px;
+                color: white;
+            }
+        }
+    }
+    h1, h2 {
+        font-family: monospace;
+        margin: 0;
+    }
+    button {
+        width: 200px;
+        height: 50px;
+        margin-bottom: 20px;
+        font-family: monospace;
+        font-size: 20px;
+        border: none;
+        color: white;
+        outline: 3px solid white;
+        outline-offset: -10px;
+        background-color: #EE5351;
+        transition: all 500ms;
+        &:hover {
+            cursor: pointer;
+            outline-offset: 5px;
+            outline-color: #333;
+            color: #333;
+        }
+    }
+}

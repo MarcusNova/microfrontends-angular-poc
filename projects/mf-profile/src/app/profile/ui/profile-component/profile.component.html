@@ -1,0 +1,15 @@
+<section class="profile-container">
+    <article class="profile-card">
+        <div class="profile-card__header">
+            <picture>
+                <img src="assets/gifs/profile-photo.gif" alt="profile-photo">
+            </picture>
+        </div>
+        <div class="profile-card__body">
+            <h1 class="name">{{ user.name }}</h1>
+            <h2 class="email">{{ user.email }}</h2>
+            <h2 class="age">{{ user.age }}</h2>
+        </div>
+    </article>
+    <button (click)="onBack()">Volver</button> 
+</section>
