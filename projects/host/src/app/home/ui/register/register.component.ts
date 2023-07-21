@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
+import Swal from "sweetalert2";
 import profileBehavior from "mfProfile/Behavior";
 
 @Component({
@@ -20,6 +21,14 @@ export class RegisterComponent {
             email: this.registerForm.get('email')?.value ?? '',
             age: this.registerForm.get('age')?.value ?? 0
         };
-        profileBehavior.next(data)
+        if (data.name != '') {
+            profileBehavior.next(data);
+            Swal.fire({
+                title: '¡Bien hecho!',
+                text: 'Te has registrado con éxito.',
+                icon: 'success',
+                confirmButtonColor: '#EE5351'
+            })
+        }
     }
 }
