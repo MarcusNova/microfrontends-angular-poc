@@ -257,7 +257,13 @@
 							"outputHashing": "all",
 							"extraWebpackConfig": "projects/mf-profile/webpack.prod.config.js"
 						},
-						"development": {
+						"local": {
+							"fileReplacements": [
+								{
+									"replace": "projects/mf-profile/src/environments/environment.ts",
+									"with": "projects/mf-profile/src/environments/environment.local.ts"
+								}
+							],
 							"buildOptimizer": false,
 							"optimization": false,
 							"vendorChunk": true,
@@ -275,11 +281,11 @@
 							"browserTarget": "mf-profile:build:production",
 							"extraWebpackConfig": "projects/mf-profile/webpack.prod.config.js"
 						},
-						"development": {
-							"browserTarget": "mf-profile:build:development"
+						"local": {
+							"browserTarget": "mf-profile:build:local"
 						}
 					},
-					"defaultConfiguration": "development",
+					"defaultConfiguration": "local",
 					"options": {
 						"port": 4300,
 						"publicHost": "http://localhost:4300",

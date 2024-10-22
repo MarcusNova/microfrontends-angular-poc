@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, HostBinding, OnInit } from "@angular/core";
 import profileBehavior from "../../infrastructure/behaviors/profile.behavior";
 import { tap } from "rxjs";
 import { ProfileUser } from "../../infrastructure/models/profile-user.model";
 import { PROFILE_INITIAL_DATA } from "../../infrastructure/constants/profile-user-initial.constant";
 import { Location } from "@angular/common";
+import { environment } from "projects/mf-profile/src/environments/environment";
 
 @Component({
     selector: 'mf-app-profile',
@@ -11,11 +12,15 @@ import { Location } from "@angular/common";
     templateUrl: './profile.component.html'
 })
 export class ProfileComponent implements OnInit {
-    user: any = {
+    // appUrlAssets: string =  'http://localhost:4300/assets'
+    appUrlAssets: string = environment.appUrlAssets;
+    @HostBinding("style.--imageUrl") imagesUrl = `url('${this.appUrlAssets}/images/background.jpg')`
+    user: ProfileUser = {
         name: 'Desconocido',
         email: 'desconocido@gmail.com',
-        edad: 20
+        age: 0
     }
+    
     constructor(public location: Location) {}
     ngOnInit(): void {
         profileBehavior.pipe(
