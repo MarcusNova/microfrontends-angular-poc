@@ -1,10 +1,11 @@
 .register-container {
     width: 100%;
-    height: fit-content;
+    height: 100vh;
     padding-left: 40px;
     padding-top: 60px;
     box-sizing: border-box;
     display: flex;
+    background-color: blanchedalmond;
     &__form {
         width: 40%;
         padding-top: 10%;
@@ -54,6 +55,13 @@
             outline-offset: 5px;
             outline-color: #333;
             color: #333;
+        }
+        &:disabled {
+            background-color: #333;
+            outline-offset: -10px;
+            &:hover {
+                outline-offset: -10px;
+            }
         }
     }
 }

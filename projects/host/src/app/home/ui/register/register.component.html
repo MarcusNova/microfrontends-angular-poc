@@ -12,7 +12,7 @@
             <label for="name">Ingrese su edad</label>
             <input type="number" formControlName="age">
         </div>
-        <button type="submit">Registrarse</button>
+        <button type="submit" [disabled]="!registerForm.valid">Registrarse</button>
         <button [routerLink]="['/perfil']" type="button">Ir a perfil</button>
     </form> 
     <picture class="register-container__landscape">
