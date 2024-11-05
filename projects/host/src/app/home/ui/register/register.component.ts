@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import Swal from "sweetalert2";
 // import profileBehavior from "mfProfile/Behavior";
+import profileSignal from "mfProfile/ProfileSignal";
 
 @Component({
     selector: 'app-register',
@@ -28,5 +29,12 @@ export class RegisterComponent {
         //     icon: 'success',
         //     confirmButtonColor: '#EE5351'
         // })
+        profileSignal.set(data) 
+        Swal.fire({
+                title: '¡Bien hecho!',
+                text: 'Te has registrado con éxito.',
+                icon: 'success',
+                confirmButtonColor: '#EE5351'
+        })
     }
 }

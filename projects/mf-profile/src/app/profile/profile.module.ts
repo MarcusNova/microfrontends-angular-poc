@@ -18,4 +18,6 @@ const routes: Routes = [
     ],
     exports: [ProfileComponent]
 })
+
+
 export class ProfileModule {}

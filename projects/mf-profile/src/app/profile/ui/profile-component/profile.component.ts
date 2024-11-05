@@ -1,5 +1,6 @@
-import { Component, HostBinding, OnInit } from "@angular/core";
-import profileBehavior from "../../infrastructure/behaviors/profile.behavior";
+import { Component, HostBinding, OnInit, Signal, WritableSignal, computed, effect } from "@angular/core";
+// import profileBehavior from "../../infrastructure/behaviors/profile.behavior";
+import profileSignal from "../../infrastructure/signal/signal";
 import { tap } from "rxjs";
 import { ProfileUser } from "../../infrastructure/models/profile-user.model";
 import { PROFILE_INITIAL_DATA } from "../../infrastructure/constants/profile-user-initial.constant";
@@ -21,17 +22,25 @@ export class ProfileComponent implements OnInit {
         age: 0
     }
     
-    constructor(public location: Location) {}
+    constructor(public location: Location) {
+        effect(() => {
+            this.profileDataHandler(profileSignal())
+        })
+    }
     ngOnInit(): void {
-        profileBehavior.pipe(
-            tap((value: ProfileUser) => {
-                this.user = value ? { ...value } : { ...PROFILE_INITIAL_DATA }
-            })
-        )
-        .subscribe()
+        // profileBehavior.pipe(
+        //     tap((value: ProfileUser) => {
+        //         this.user = value ? { ...value } : { ...PROFILE_INITIAL_DATA }
+        //     })
+        // )
+        // .subscribe()
     }
     onBack() {
         this.location.back();
     }
-
+    profileDataHandler(data: ProfileUser) {
+        console.log(data, 'firing!');
+        
+        this.user = data ? {...data} : {...PROFILE_INITIAL_DATA}
+    }
 }
